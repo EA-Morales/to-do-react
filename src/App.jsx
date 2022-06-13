@@ -4,7 +4,6 @@ import Modal from './components/Modal';
 import TaskList from './components/TaskList';
 import SearchTask from './components/SearchTask';
 import TaskCounter from './components/TaskCounter';
-import useTodos from './hooks/useTodos';
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -12,7 +11,6 @@ function App() {
     { id: 2, title: 'Task 2', completed: true },
     { id: 3, title: 'Task 3', completed: false },
   ]);
-  const [todos, addtodos, toogletodo, removetodo, log] = useTodos();
 
   const [query, setQuery] = useState('');
   const [completed, setcompleted] = useState(0);
@@ -37,13 +35,6 @@ function App() {
     setTasks(newTasks);
   };
 
-  const onToogle = task => {
-    const newTasks = tasks.map(t =>
-      t.id === task.id ? { ...t, completed: !t.completed } : t
-    );
-    setTasks(newTasks);
-  };
-
   const closeModal = () => {
     setmodal(false);
   };
@@ -54,14 +45,7 @@ function App() {
 
       <SearchTask search={search} />
 
-      <button onClick={() => log('hola', 'mundo')}>prueba</button>
-
-      <TaskList
-        tasks={tasks}
-        onDelete={onDelete}
-        query={query}
-        onToogle={onToogle}
-      />
+      <TaskList tasks={tasks} onDelete={onDelete} query={query} />
 
       {modal && (
         <Modal onSubmitHandler={onSubmitHandler} closeModal={closeModal} />

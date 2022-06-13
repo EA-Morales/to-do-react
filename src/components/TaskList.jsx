@@ -1,6 +1,9 @@
+import useTasks from '../hooks/useTasks';
 import TaskItem from './TaskItem';
 
-const TaskList = ({ tasks, onDelete, query, onToogle }) => {
+const TaskList = ({ onDelete, query }) => {
+  const [tasks, addTask, toogleTask, removeTask] = useTasks();
+
   const filteredTasks = tasks.filter(task => {
     return task.title.toLowerCase().includes(query.toLowerCase());
   });
@@ -9,7 +12,7 @@ const TaskList = ({ tasks, onDelete, query, onToogle }) => {
     <div className='w-5/6 py-2 px-4'>
       {filteredTasks.map(task => (
         <ul className='flex justify-center gap-4' key={task.id}>
-          <TaskItem task={task} mostrar={() => onToogle(task)} />
+          <TaskItem task={task} mostrar={() => toogleTask(task)} />
           <button className='' onClick={() => onDelete(task.id)}>
             <svg
               xmlns='http://www.w3.org/2000/svg'

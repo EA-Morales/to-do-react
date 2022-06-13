@@ -9,14 +9,15 @@ const taskslist = [
 const useTasks = () => {
   const [tasks, setTasks] = useState([...taskslist]);
 
-  console.log(tasks);
-
   const addTask = task => {
     console.log(task);
   };
 
-  const toogleTask = () => {
-    console.log(tasks);
+  const toogleTask = task => {
+    const newTasks = tasks.map(t =>
+      t.id === task.id ? { ...t, completed: !t.completed } : t
+    );
+    setTasks(newTasks);
   };
 
   const removeTask = id => {
