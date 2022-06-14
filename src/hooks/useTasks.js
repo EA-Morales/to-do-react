@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
 
 const taskslist = [
-  { id: 1, title: 'Task 1', completed: false },
-  { id: 2, title: 'Task 2', completed: true },
-  { id: 3, title: 'Task 3', completed: false },
+  { id: 1, title: 'Tarea de prueba 1', completed: false },
+  {
+    id: 2,
+    title:
+      'Esto es una tarea demasiado larga para probar la vista del componente xD',
+    completed: true,
+  },
+  { id: 3, title: '... No se me ocurre que poner', completed: false },
 ];
 
 const useTasks = () => {
