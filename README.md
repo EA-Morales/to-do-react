@@ -11,3 +11,7 @@ To-do list project created for "bootcamp" codo a codo 4.0
 > tailwindcss - CSS framework for the web
 
 > eslint and prettier - Code style tools
+
+## image of the project
+
+<img  src='./public/to-do-list.png' height='200px'>
