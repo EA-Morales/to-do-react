@@ -21,7 +21,7 @@ const useTasks = () => {
     const newTask = {
       id: new Date(),
       title: task.title,
-      completed: tasks.completed,
+      completed: task.completed,
     };
     setTasks([...tasks, newTask]);
     setmodal(false);

@@ -34,7 +34,7 @@ function App() {
       {modal && <Modal onSubmitHandler={addTask} closeModal={openModal} />}
 
       <button
-        className='fixed p-1 bottom-5 bg-indigo-600 rounded-full hover:bg-indigo-800 hover:animate-bounce hover:ease-in-out hover:duration-300'
+        className='fixed p-1 bottom-5 bg-pink-600 rounded-full hover:bg-pink-800 hover:animate-bounce hover:ease-in-out hover:duration-300'
         onClick={() => openModal()}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
