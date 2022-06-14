@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const taskslist = [
   { id: 1, title: 'Task 1', completed: false },
@@ -8,9 +8,23 @@ const taskslist = [
 
 const useTasks = () => {
   const [tasks, setTasks] = useState([...taskslist]);
+  const [completed, setcompleted] = useState(0);
+  const [modal, setmodal] = useState(false);
+  const [query, setQuery] = useState('');
+
+  useEffect(() => {
+    const count = tasks.filter(task => task.completed).length;
+    setcompleted(count);
+  }, [tasks]);
 
   const addTask = task => {
-    console.log(task);
+    const newTask = {
+      id: new Date(),
+      title: task.title,
+      completed: tasks.completed,
+    };
+    setTasks([...tasks, newTask]);
+    setmodal(false);
   };
 
   const toogleTask = task => {
@@ -20,11 +34,30 @@ const useTasks = () => {
     setTasks(newTasks);
   };
 
-  const removeTask = id => {
-    console.log(id);
+  const removeTask = task => {
+    const newTasks = tasks.filter(t => t.id !== task);
+    setTasks(newTasks);
   };
 
-  return [tasks, addTask, toogleTask, removeTask];
+  const openModal = () => {
+    setmodal(!modal);
+  };
+
+  const search = query => {
+    setQuery(query);
+  };
+
+  return {
+    tasks,
+    addTask,
+    toogleTask,
+    removeTask,
+    completed,
+    modal,
+    openModal,
+    query,
+    search,
+  };
 };
 
 export default useTasks;
