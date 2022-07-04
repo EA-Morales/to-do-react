@@ -19,12 +19,15 @@ function App() {
   } = useTasks();
 
   return (
-    <div className='container h-full mx-auto flex justify-center items-center'>
-      <div className='w-4/5 my-8 flex flex-col justify-center items-center bg-white shadow-xl p-8 rounded-2xl'>
-        <TaskCounter completed={completed} />
-
+    <div className='container h-full mx-auto'>
+      <div className='image h-[200px] bg-no-repeat bg-cover bg-center px-6'>
+        <h1 className='pt-12 pb-9 text-4xl text-white font-bold'>TODO</h1>
         <SearchTask search={search} />
-
+      </div>
+      <div className='w-4/5 my-8 flex flex-col justify-center items-center bg-white shadow-xl p-8 rounded-2xl '>
+        <form>
+          <input className='pepe' type='checkbox' />
+        </form>
         <TaskList
           query={query}
           tasks={tasks}
@@ -32,10 +35,11 @@ function App() {
           removeTask={removeTask}
         />
 
+        <TaskCounter completed={completed} />
         {modal && <Modal onSubmitHandler={addTask} closeModal={openModal} />}
 
         <button
-          className='fixed p-1 bottom-5 right-5 bg-pink-600 rounded-full hover:bg-pink-800 hover:animate-bounce hover:ease-in-out hover:duration-300'
+          className='fixed p-1 bottom-5 right-5 bg-pink-600 rounded-full hover:bg-pink-800 hover:animate-bounce hover:duration-300'
           onClick={() => openModal()}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
