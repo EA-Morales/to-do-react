@@ -1,25 +1,17 @@
 import { useState, useEffect } from 'react';
-
-const taskslist = [
-  { id: 1, title: 'Tarea de prueba 1', completed: false },
-  {
-    id: 2,
-    title:
-      'Esto es una tarea demasiado larga para probar la vista del componente xD',
-    completed: true,
-  },
-  { id: 3, title: '... No se me ocurre que poner', completed: false },
-];
+import { useLocalStorage } from './useLocalStorage';
 
 const useTasks = () => {
-  const [tasks, setTasks] = useState([...taskslist]);
+  const [tasks, setTasks] = useLocalStorage('tasks', '');
   const [completed, setcompleted] = useState(0);
   const [modal, setmodal] = useState(false);
   const [query, setQuery] = useState('');
 
   useEffect(() => {
-    const count = tasks.filter(task => task.completed).length;
-    setcompleted(count);
+    if (tasks) {
+      const count = tasks.filter(task => task.completed).length;
+      setcompleted(count);
+    }
   }, [tasks]);
 
   const addTask = task => {
