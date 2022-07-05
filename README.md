@@ -18,8 +18,6 @@ To-do list project created for "bootcamp" codo a codo 4.0
 
 > Re-Factor useTasks, split in agnostic hooks
 
-> use an state hook to maintene the to-do list if network is not working or if the user is offline
-
 > useContext (?).... I don't know if it's necessary
 
 ## image of the project
