@@ -19,6 +19,7 @@ specifiers:
   react-dom: ^18.0.0
   tailwindcss: ^3.0.24
   vite: ^2.9.9
+  vite-plugin-gh-pages: ^0.3.0
 
 dependencies:
   react: 18.1.0
@@ -41,6 +42,7 @@ devDependencies:
   prettier: 2.6.2
   tailwindcss: 3.0.24
   vite: 2.9.9
+  vite-plugin-gh-pages: 0.3.0
 
 packages:
 
@@ -2525,6 +2527,12 @@ packages:
 
   /v8-compile-cache/2.3.0:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
+    dev: true
+
+  /vite-plugin-gh-pages/0.3.0:
+    resolution: {integrity: sha512-nKS+YZsm4Lq3L10M77tmpkkKN2G+dFo3FpZaTsVWbCBh8EvQHIQZYhJNKI0a1kl1BQFBDEXyuNb13hqFkfEg/Q==}
+    dependencies:
+      gh-pages: 4.0.0
     dev: true
 
   /vite/2.9.9:
