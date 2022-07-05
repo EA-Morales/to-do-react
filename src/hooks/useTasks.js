@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
 const useTasks = () => {
-  const [tasks, setTasks] = useLocalStorage('tasks', '');
+  const [tasks, setTasks] = useLocalStorage('tasks', []);
   const [completed, setcompleted] = useState(0);
   const [modal, setmodal] = useState(false);
   const [query, setQuery] = useState('');

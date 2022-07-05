@@ -1,11 +1,9 @@
 import TaskItem from './TaskItem';
 
 const TaskList = ({ query, tasks, toogleTask, removeTask }) => {
-  const filteredTasks = tasks
-    ? tasks.filter(task => {
-        return task.title.toLowerCase().includes(query.toLowerCase());
-      })
-    : [];
+  const filteredTasks = tasks.filter(task => {
+    return task.title.toLowerCase().includes(query.toLowerCase());
+  });
 
   return (
     <div className='w-5/6 py-2 px-4'>
